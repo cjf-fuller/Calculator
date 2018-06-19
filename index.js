@@ -13,28 +13,24 @@ console.log('Please enter second number:');
 const responsey = readline.prompt();
 var y = parseFloat(responsey);
 
-if (operator == '+'){
-var ans = x+y;
-console.log(x + ' + ' + y + ' = ' + ans)
+switch(operator) {
+    case "+":
+        var ans = x+y;
+        console.log(x + ' + ' + y + ' = ' + ans);
+        break;
+    case "-":
+        var ans = x-y;
+        console.log(x + ' - ' + y + ' = ' + ans);
+        break;
+    case "*":
+        var ans = x*y;
+        console.log(x + ' * ' + y + ' = ' + ans);
+        break;
+    case "/":
+        var ans = x/y;
+        console.log(x + ' / ' + y + ' = ' + ans);
+        break;
+    default:
+        console.log("Error - Please enter a valid operator")
 }
-else if (operator == '-'){
-var ans = x-y;
-console.log(x + ' - ' + y + ' = ' + ans);
-
-}
-else if (operator == '*'){
-var ans = x*y;
-console.log(x + ' * ' + y + ' = ' + ans);
-
-}
-else if (operator == '/'){
-var ans = x/y;
-console.log(x + ' / ' + y + ' = ' + ans);
-
-}
-
-else {
-    console.log("ERROR - Please enter a valid operator.")
-}
-
 
