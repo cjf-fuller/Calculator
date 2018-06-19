@@ -1,18 +1,47 @@
 const readline = require('readline-sync');
-console.log('Welcome to Caspar\'s Calculator!');
-console.log('-------------------');
 
+printWelcome();
+while(true){
+    performCalculation();
+}
+
+
+function performCalculation()
+{
 console.log('Please enter operation symbol (+-*/):');
 const operator = readline.prompt();
 
-console.log('Please enter the number of numbers you want to '+operator+':');
-const numTot = readline.prompt();
+var x = 0;
+do {
+    console.log('Please enter the number of numbers you want to '+operator+':');
+    const numTo = readline.prompt();
+    var numTot = parseInt(numTo);
+    if (isNaN(numTot)){
+         console.log("Please enter a valid input.")
+         continue;
+    }
+    else{
+        x = 1;
+    }
+
+}while (x===0);
 
 var numArr = [];
 for(i=0; i<numTot; i++){
-    console.log('Please enter number ' + (i+1) +':')
-    var number = readline.prompt();
-    numArr.push(parseFloat(number));
+    x = 0;
+    do {
+        console.log('Please enter number ' + (i+1) +':')
+        var num = readline.prompt();
+        number = parseFloat(num);
+        if (isNaN(number)){
+            console.log("Please enter a valid input")
+            continue;
+        }
+        else{
+            numArr.push(number);
+            x = 1;
+        }
+    }while(x===0)
 }
 
 console.log(numArr)
@@ -45,4 +74,8 @@ switch(operator) {
         console.log("Error - Please enter a valid operator")
 }
 console.log("Answer = " + ans);
-
+}
+function printWelcome(){
+    console.log('Welcome to Caspar\'s Calculator!');
+    console.log('-------------------');
+}
