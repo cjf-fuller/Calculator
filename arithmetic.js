@@ -32,28 +32,17 @@ var numArr = inputNumbers(numTot);
 
 switch(operator) {
     case "+":
-        var ans = numArr[0];
-        for (i=1; i<numTot; i++){
-          ans = ans + numArr[i]    
-        }
+        var ans = numArr.reduce(function(first,second){return first + second;}, 0);
         break;
     case "-":
-        var ans = numArr[0];
-        for (i=1; i<numTot; i++){
-           ans = ans - numArr[i]    
-        }
+        var ans = numArr.reduce(function(first,second){return (first - second);});
         break;
     case "*":
-        var ans = numArr[0];
-        for (i=1; i<numTot; i++){
-           ans = ans * numArr[i]    
-        }
+        var ans = numArr.reduce(function(first,second){return first * second;});
         break;
     case "/":
-        var ans = numArr[0];
-        for (i=1; i<numTot; i++){
-           ans = ans / numArr[i]    
-        }
+        DnumArr = numArr.filter(function (item){return item != 0;});
+        var ans = DnumArr.reduce(function(first,second){return first / second;});
         break;
     default:
         console.log("Error - Please enter a valid operator")
