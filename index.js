@@ -5,13 +5,21 @@ const vowelCounting = require('./vowelCounting');
 printWelcome();
 
 while(true){
-    const calculationMode = getCalculationMode();
-    if (calculationMode === 1) {
-        arithmetic.onearithcalc();
-    }
-    else if (calculationMode === 2){
-       vowelCounting.vowel();
-    }
+    z = 0;
+    do{
+        const calculationMode = getCalculationMode();
+        if (calculationMode === 1) {
+            arithmetic.onearithcalc();
+            z=1;
+        }
+        else if (calculationMode === 2){
+           vowelCounting.vowel();
+           z=1;
+        }
+        else {
+            console.log("Error - Invalid mode entered. Must be either 1 (arithmetic) or 2 (vowelcount)");
+        }
+    }while (z===0)
 }
 
 function printWelcome(){

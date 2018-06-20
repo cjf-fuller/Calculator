@@ -25,12 +25,34 @@ function inputNumbers(numTot){
 exports.onearithcalc = function performOneArithmeticCalculation()
 {
 console.log('Please enter operation symbol (+-*/):');
+y = 0
+do{
 const operator = readline.prompt();
-console.log('Please enter the number of numbers you want to '+operator+':');
+var operator1 = operator
+if (operator == '+') {
+        console.log("You have selected addition");
+        y = 1;
+    }
+else if (operator == '-'){
+        console.log("You have selected subtraction");
+        y = 1;
+    }
+else if (operator == '*'){
+        console.log("You have selected multiplication");
+        y=1;
+    }
+else if (operator == '/'){
+        console.log("You have selected division");
+        y = 1;
+    }
+else {console.log("Not a valid input! Input must be one of: + - * / \n Please try again...")};
+}while (y === 0)
+
+console.log('Please enter the number of numbers you want to ' + operator1 +':');
 var numTot = input.intin();
 var numArr = inputNumbers(numTot);
 
-switch(operator) {
+switch(operator1) {
     case "+":
         var ans = numArr.reduce(function(first,second){return first + second;}, 0);
         break;
